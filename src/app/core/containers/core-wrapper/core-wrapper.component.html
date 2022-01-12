@@ -1,0 +1,5 @@
+<h5>Time Intervals Data</h5>
+
+<tg-interval-select (intervalsChangeEvent)="setIntervals($event)"></tg-interval-select>
+
+<tg-table *ngIf="tableHeaders" [headers]="tableHeaders" [data]="intervals"></tg-table>

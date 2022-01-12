@@ -1,0 +1,13 @@
+<perfect-scrollbar>
+  <div class="t-header-wrapper">
+    <div *ngFor="let header of headers" class="t-header">{{ header }}</div>
+  </div>
+
+  <div *ngIf="data" class="t-body">
+    <div *ngFor="let row of data" class="t-row">
+      <div *ngFor="let cell of row" class="t-cell">
+        {{ cell.value }}
+      </div>
+    </div>
+  </div>
+</perfect-scrollbar>

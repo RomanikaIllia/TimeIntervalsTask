@@ -1,0 +1,7 @@
+<span>Select time intervals:</span>
+
+<select [ngModel]="selectedInterval" (ngModelChange)="selectInterval($event)">
+  <option [ngValue]="300">5 minutes</option>
+  <option [ngValue]="1800">30 minutes</option>
+  <option [ngValue]="3600">1 hour</option>
+</select>

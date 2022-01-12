@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  border: 1px solid #ebebeb;
+
+  perfect-scrollbar {
+    height: 70vh;
+  }
+
+  .t-header-wrapper {
+    display: inline-flex;
+    border-bottom: 1px solid #ebebeb;
+    position: sticky;
+    top: 0;
+
+    .t-header {
+      width: 80px;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #545454;
+      text-align: center;
+      background-color: #fff;
+    }
+  }
+
+  .t-body {
+    .t-row {
+      display: inline-flex;
+
+      .t-cell {
+        width: 80px;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #545454;
+        text-align: center;
+        background-color: #fff;
+      }
+    }
+  }
+}
