@@ -1,19 +1,19 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { TableComponent } from './table.component';
 
 describe('TableComponent', () => {
   let component: TableComponent;
   let fixture: ComponentFixture<TableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableComponent ]
+      imports: [CommonModule, PerfectScrollbarModule],
+      declarations: [TableComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,5 +24,17 @@ describe('TableComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('shouldn`t add table header without input', () => {
+    const headerEl = fixture.debugElement.query(By.css('.t-header-wrapper'));
+
+    expect(headerEl).toBeNull();
+  });
+
+  it('shouldn`t add table body without input', () => {
+    const bodyEl = fixture.debugElement.query(By.css('.t-body'));
+
+    expect(bodyEl).toBeNull();
   });
 });

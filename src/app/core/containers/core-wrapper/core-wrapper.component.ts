@@ -13,6 +13,10 @@ export class CoreWrapperComponent {
   tableHeaders: string[];
 
   setIntervals(intervals: IntervalModel[][]) {
+    if (!intervals || intervals.length === 0) {
+      return;
+    }
+
     this.intervals = intervals;
 
     this.tableHeaders = intervals[0].map(x => moment.utc(x.time * 1000).format('HH:mm'));

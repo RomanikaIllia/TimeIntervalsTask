@@ -1,19 +1,20 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { IntervalSelectComponent } from '../../components';
 import { CoreWrapperComponent } from './core-wrapper.component';
 
 describe('CoreWrapperComponent', () => {
   let component: CoreWrapperComponent;
   let fixture: ComponentFixture<CoreWrapperComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoreWrapperComponent ]
+      imports: [CommonModule, FormsModule, SharedModule],
+      declarations: [IntervalSelectComponent, CoreWrapperComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,5 +25,9 @@ describe('CoreWrapperComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('shouldn`t crash with empty intervals', () => {
+    expect(component.setIntervals).not.toThrowError(TypeError);
   });
 });

@@ -1,5 +1,5 @@
 <perfect-scrollbar>
-  <div class="t-header-wrapper">
+  <div *ngIf="headers" class="t-header-wrapper">
     <div *ngFor="let header of headers" class="t-header">{{ header }}</div>
   </div>
 
